@@ -235,7 +235,9 @@ input, select, textarea {
 	.align-right {
 		text-align: right;
 	}
-
+	.inner_content{
+		text-align: justify;
+	}
 /* Row */
 
 	.row {
@@ -3088,7 +3090,6 @@ input, select, textarea {
 					}
 
 					#titleBar .toggle:before {
-						background: #4acaa8;
 						color: #ffffff;
 						content: '\f0c9';
 						display: block;
