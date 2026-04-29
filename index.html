@@ -12,6 +12,72 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="assets/css/main.css" />
 	<style>
+		:root {
+			--portfolio-accent: #4AC9A8;
+			--portfolio-accent-dark: #4AC9A8;
+			--portfolio-ink: #777;
+			--portfolio-muted: #7E7E7E;
+			--portfolio-line: #f4f4f4;
+			--portfolio-soft: #fafafa;
+			--portfolio-warm: #4AC9A8;
+			--portfolio-blue: #4AC9A8;
+		}
+
+		#header {
+			background: #4acaa8;
+		}
+
+		#header #logo a {
+			letter-spacing: 0.04em;
+		}
+
+		#main>.section,
+		#main>section {
+			background: linear-gradient(180deg, #ffffff 0%, #fbfdfc 100%);
+			min-height: 100vh;
+		}
+
+		#main>section>.container {
+			min-height: calc(100vh - 10em);
+		}
+
+		#main>section#footer,
+		#main>section#footer>.container {
+			min-height: 0;
+		}
+
+		#footer {
+			padding: 0 !important;
+		}
+
+		#main>section#footer>.container {
+			padding: 0.75em 0 !important;
+		}
+
+		#footer .copyright {
+			line-height: 1.4;
+			margin: 0;
+		}
+
+		header.major h2 {
+			color: var(--portfolio-ink);
+			position: relative;
+		}
+
+		header.major h2:after {
+			background: var(--portfolio-warm);
+			content: '';
+			display: block;
+			height: 4px;
+			margin-top: 0.45em;
+			width: 3.4em;
+		}
+
+		.inner_content {
+			color: #53606a;
+			line-height: 1.95;
+		}
+
 		.profile {
 			border: 2px solid #9c9c9c;
 			margin-right: 2.5em;
@@ -26,6 +92,136 @@
 			margin-right: 2.5em;
 			padding-right: 0 !important;
 			width: 42.5% !important;
+		}
+
+		.skill-grid {
+			display: grid;
+			gap: 1.25em;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			margin-top: 1.5em;
+		}
+
+		.skill-group {
+			background: var(--portfolio-soft);
+			border: 1px solid var(--portfolio-line);
+			padding: 1.4em 1.4em 0.6em;
+		}
+
+		.skill-group h4 {
+			color: var(--portfolio-ink);
+			margin-bottom: 0.9em;
+		}
+
+		.skill-group h5 {
+			color: var(--portfolio-accent-dark);
+			font-size: 0.82em;
+			letter-spacing: 0.06em;
+			margin: 0 0 0.8em;
+			text-transform: uppercase;
+		}
+
+		.skill-group .feature-icons {
+			margin-bottom: 1.15em;
+		}
+
+		.skill-group .feature-icons li {
+			color: #53606a;
+			padding-top: 0.25em;
+		}
+
+		.achievement-summary {
+			border-bottom: 1px solid var(--portfolio-line);
+			border-top: 1px solid var(--portfolio-line);
+			margin: 1.25em 0 2em 0;
+			padding: 1.35em 0;
+		}
+
+		.achievement-meta {
+			color: var(--portfolio-muted);
+			margin-bottom: 1em;
+		}
+
+		.metric-grid {
+			display: grid;
+			gap: 1em;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
+			margin-top: 1.5em;
+		}
+
+		.metric {
+			background: var(--portfolio-soft);
+			border-top: 3px solid var(--portfolio-accent);
+			padding: 1em;
+		}
+
+		.metric strong {
+			color: var(--portfolio-ink);
+			display: block;
+			font-size: 1.65em;
+			line-height: 1.1;
+			margin-bottom: 0.35em;
+		}
+
+		.metric span {
+			color: var(--portfolio-muted);
+			font-size: 0.92em;
+			line-height: 1.6;
+		}
+
+		@media screen and (max-width: 980px) {
+			.skill-grid,
+			.metric-grid {
+				grid-template-columns: 1fr;
+			}
+
+			#main>.section,
+			#main>section,
+			#main>section>.container {
+				min-height: auto;
+			}
+
+			.profile,
+			.profile:hover {
+				margin-right: 0;
+				width: 100% !important;
+			}
+		}
+
+		@media screen and (max-width: 1024px) {
+			#titleBar {
+				background: #4acaa8;
+				box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+			}
+
+			#titleBar .title {
+				padding: 0 4em 0 1em;
+			}
+
+			#titleBar .toggle {
+				height: 44px;
+				right: 0;
+				top: 0;
+				width: 52px;
+			}
+
+			#titleBar .toggle:before {
+				height: 44px;
+				line-height: 44px;
+				right: 0;
+				width: 52px;
+			}
+
+			body.header-visible #wrapper,
+			body.header-visible #titleBar {
+				-moz-transform: none;
+				-webkit-transform: none;
+				-ms-transform: none;
+				transform: none;
+			}
+
+			body.header-visible #header {
+				box-shadow: -12px 0 30px rgba(0, 0, 0, 0.18);
+			}
 		}
 	</style>
 </head>
@@ -81,8 +277,16 @@
 							來觀看接下來的所有事物 .</p>
 					</header>
 					<p class="inner_content">
-						您好我是黃建銘，目前就讀於高雄科技大學智慧商務系。在我的高職時期，我有幸和幾位要好的朋友參加了一場網頁設計比賽並獲得了名次。當時，我們只是使用基礎的HTML和CSS編寫，但這個過程讓我對網頁開發產生了極大的興趣。
-						在過去的三年大學生涯中，我學習到了多種程式語言，包括Python、JavaScript和PHP，也學習了許多前端和後端的框架，並且掌握了如何運用它們，以及如何透過API串接前後端。我目前希望能在前端領域有更多的接觸和經驗，例如Angular和Vue等技術。我希望能培養自己在這方面的專業能力。同時，在閒暇時間，我也會多去了解學習後端框架，以獲得更多元化的知識和實務經驗。
+					我叫黃建銘，目前就讀高雄科技大學智慧商務系。
+					最早接觸程式，其實是在高職時期。那時候和幾個朋友一起參加網頁設計比賽，我們用最基礎的 HTML 和 CSS，一邊摸索一邊做，最後還拿到了名次。也就是從那次開始，我對網頁開發產生了很大的興趣。
+
+					上了大學之後，我開始系統性學習程式，接觸了 Python、JavaScript、PHP，也慢慢理解前後端怎麼串接、怎麼透過 API 把系統整合起來。我特別對前端很有興趣，目前也在持續學習像 Angular、Vue 這類框架，同時也不排斥往後端延伸，希望讓自己的技術更完整。
+
+					到了碩士階段，我把重心放在 AI 領域，有機會參與智慧零售相關計畫，負責數據分析與銷售預測模型的建立。這段經驗讓我開始思考，怎麼把數據真的轉換成對企業有幫助的決策。
+
+					除了課業之外，我也自己研究生成式 AI 和提示工程，並在 GitHub 上做了一些小專案，像是把 AI 功能整合進 LINE 和 Discord，讓它可以自動生成內容或協助寫程式。雖然規模不大，但這些實作讓我更清楚 AI 在實務上的可能性。
+
+					一路走來，我發現技術變化真的很快，所以我也一直提醒自己要持續學習、保持敏銳，讓自己不只是會用工具，而是能跟著技術一起成長。
 					</p>
 				</div>
 			</section>
@@ -91,39 +295,59 @@
 			<section id="two">
 				<div class="container">
 					<h3>我會做什麼？</h3>
-					<h4>Web開發</h4>
-					<ul class="feature-icons">
-						<h5>基礎</h5>
-
-						<li class="icon brands fa-html5">HTML5</li>
-						<li class="icon brands fa-js">JavaScript</li>
-						<li class="icon solid fa-code">jQuery</li>
-						<li class="icon brands fa-php">PHP</li>
-						<h5>樣式</h5>
-						<li class="icon brands fa-css3-alt">Css</li>
-						<li class="icon brands fa-bootstrap">BootStrap</li>
-						<h5>前端框架</h5>
-						<li class="icon brands fa-react">React</li>
-						<li class="icon brands fa-react">React Native</li>
-						<h5>後端框架</h5>
-						<li class="icon brands fa-laravel">Laravel</li>
-						<li class="icon brands fa-laravel">Lumen</li>
-					</ul>
-					<h4>其他語言</h4>
-					<ul class="feature-icons">
-						<li class="icon brands fa-python">Python</li>
-					</ul>
-					<h4>資料庫</h4>
-					<ul class="feature-icons">
-						<li class="icon solid fa-database">MySQL</li>
-						<li class="icon solid fa-server">MsSQL</li>
-					</ul>
+					<div class="skill-grid">
+						<div class="skill-group">
+							<h4>Web 開發</h4>
+							<h5>基礎與樣式</h5>
+							<ul class="feature-icons">
+								<li class="icon brands fa-html5">HTML5</li>
+								<li class="icon brands fa-js">JavaScript</li>
+								<li class="icon solid fa-code">jQuery</li>
+								<li class="icon brands fa-css3-alt">CSS</li>
+								<li class="icon brands fa-bootstrap">Bootstrap</li>
+							</ul>
+							<h5>框架</h5>
+							<ul class="feature-icons">
+								<li class="icon brands fa-react">React</li>
+								<li class="icon brands fa-react">React Native</li>
+								<li class="icon brands fa-laravel">Laravel</li>
+								<li class="icon brands fa-laravel">Lumen</li>
+							</ul>
+						</div>
+						<div class="skill-group">
+							<h4>AI 應用技術</h4>
+							<ul class="feature-icons">
+								<li class="icon solid fa-brain">生成式AI</li>
+								<li class="icon solid fa-comments">LLM / ChatGPT</li>
+								<li class="icon solid fa-lightbulb">提示工程</li>
+								<li class="icon solid fa-code-branch">深度學習</li>
+								<li class="icon solid fa-code-branch">MLOps</li>
+							</ul>
+						</div>
+						<div class="skill-group">
+							<h4>程式語言</h4>
+							<ul class="feature-icons">
+								<li class="icon brands fa-python">Python</li>
+								<li class="icon brands fa-php">PHP</li>
+							</ul>
+						</div>
+						<div class="skill-group">
+							<h4>資料庫</h4>
+							<ul class="feature-icons">
+								<li class="icon solid fa-database">MySQL</li>
+								<li class="icon solid fa-server">MsSQL</li>
+								<li class="icon solid fa-database">PostgreSQL</li>
+								<li class="icon solid fa-server">Oracle</li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</section>
 			<!-- four -->
 			<section id="three">
 				<div class="container">
 					<h3>證照取得</h3>
+					<div style="margin-bottom:10px;">(點選文字能看得到證照圖)</div>
 					<div class="row">
 						<div class="col-6 col-12-xsmall">
 							<h5>資訊能力</h5>
@@ -160,9 +384,31 @@
 			<!-- four -->
 			<section id="four">
 				<div class="container">
+					<h3>專案成就</h3>
+					<div class="achievement-summary">
+						<h4>跨域 AI 智慧零售營運升級計畫</h4>
+						<div class="achievement-meta">2025/5 - 2025/11</div>
+						<p class="inner_content">
+							主要負責 AI 銷售預測與精準備貨系統，整合 POS 歷史銷售、天氣預報、連續假期與品牌促銷等多維度資料，建立銷售預測模型，提供門市「明日建議備貨量」，協助營運從人工經驗判斷轉向數據化決策。
+						</p>
+						<div class="metric-grid">
+							<div class="metric">
+								<strong>3.66</strong>
+								<span>預期報廢率目標降低百分點，減少食物浪費。</span>
+							</div>
+							<div class="metric">
+								<strong>10%+</strong>
+								<span>透過精準備貨與即時促銷，帶動營業額成長。</span>
+							</div>
+							<div class="metric">
+								<strong>50%</strong>
+								<span>將店長經驗系統化，縮短新店長培訓天數。</span>
+							</div>
+						</div>
+					</div>
 					<h3>作品集</h3>
-					<div>從2020-2023以來的作品集</div>
-					<div>(點選左圖即可瀏覽網站)</div>
+					<div>從2020以來的作品集</div>
+					<div>(點選左圖即可瀏覽網站或 GitHub 專案)</div>
 					<div class="features">
 						<article>
 							<a href="https://ibsms.netlify.app" target="_blank"><img src="images/pic01.png" alt=""
@@ -187,8 +433,9 @@
 							</div>
 						</article>
 						<article>
-							<a href="https://hjmtolistreact.netlify.app/" class="image profile" target="_blank"><img
-									src="images/pic03.jpg" alt="" /></a>
+							<a href="https://hjmtolistreact.netlify.app/" class="image profile" target="_blank">
+								<img src="images/pic03.jpg" alt="" />
+							</a>
 							<div class="inner">
 								<h4>備忘錄</h4>
 								<p class="inner_content">
@@ -197,12 +444,23 @@
 							</div>
 						</article>
 						<article>
-							<a href="https://ftsystem.freemyip.com/" class="image profile" target="_blank"><img
-									src="images/pic04.png" alt="" /></a>
+							<a href="https://github.com/xxphjm/discord-bot-translate"
+								class="image profile" target="_blank">
+								<img src="images/discoard_translate.png" alt="" /></a>
 							<div class="inner">
-								<h4>電腦選購網站(尚開發)</h4>
+								<h4>多語言同步翻譯機器人</h4>
 								<p class="inner_content">
-									這個網站是2022年暑假我獨自發想的一個專案，目的是為了想多精進自己寫這個框架的能力，基本的功能都已完善，但有些bug還需要調整，未來可能會修正這些bug，以及設計首頁的畫面。
+									這是一個以Python開發的Discord聊天機器人，整合Make.com webhook進行AI翻譯，可自動偵測純文字訊息並翻譯成韓文、越文與繁體中文，也支援指定語言翻譯、語言列表與連線測試等指令。
+								</p>
+							</div>
+						</article>
+						<article>
+							<a href="https://github.com/xxphjm/LOTTO_PREDICT" class="image profile"
+								target="_blank"><img src="images/lotto.png" alt="" /></a>
+							<div class="inner">
+								<h4>樂透預測</h4>
+								<p class="inner_content">
+									這是一個LINE Bot彩券預測服務，使用Flask與LINE Bot SDK建立互動流程，並串接Groq API分析大樂透與威力彩的歷史開獎資料，讓使用者能選擇資料區間後取得AI產生的預測結果。
 								</p>
 							</div>
 						</article>
